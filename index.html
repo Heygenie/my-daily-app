@@ -16,7 +16,7 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 #hd-app{font-size:9px;letter-spacing:3px;opacity:0.38;text-transform:uppercase;}
 #hd-date{font-size:15px;font-weight:700;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #hd-nav{display:flex;gap:5px;align-items:center;flex-shrink:0;}
-.nav-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;width:28px;height:28px;border-radius:7px;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.nav-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;width:28px;height:28px;border-radius:7px;font-size:16px;display:flex;align-items:center;justify-content:center;}
 .nav-btn:hover{background:rgba(255,255,255,0.2);}
 #today-jump{width:auto;padding:0 9px;font-size:11px;border-radius:12px;}
 
@@ -33,17 +33,10 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 .card-title{font-size:13px;font-weight:700;margin-bottom:10px;}
 .card-sub{font-size:11px;color:#AAA;font-weight:400;margin-left:4px;}
 
-/* ── 플래너 오늘 (PC) ── */
+/* ── 플래너 오늘 ── */
 #plan-today{display:flex;height:100%;}
 #time-grid{flex:0 0 54%;overflow-y:auto;border-right:1px solid #EDECEA;}
-#plan-side{flex:1;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;}
-
-/* ── 플래너 오늘 (모바일) ── */
-@media(max-width:600px){
-  #plan-today{flex-direction:column;}
-  #time-grid{flex:none;height:45%;border-right:none;border-bottom:1px solid #EDECEA;}
-  #plan-side{flex:1;padding:10px;}
-}
+#plan-side{flex:1;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;min-width:0;}
 
 .hour-row{display:flex;min-height:52px;border-top:1px solid #F3F1EE;}
 .h-label{width:40px;font-size:10px;color:#C5C0BA;text-align:right;padding:5px 7px 0 0;flex-shrink:0;}
@@ -52,7 +45,7 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 .add-slot{opacity:0;background:none;border:1px dashed #CCC;color:#AAA;border-radius:6px;padding:2px 8px;font-size:11px;transition:opacity .2s;margin-top:2px;}
 .block-chip{display:flex;align-items:center;gap:5px;border-radius:7px;padding:4px 7px;margin-bottom:3px;border:1.5px solid;min-width:0;}
 .b-toggle{width:15px;height:15px;border-radius:4px;border:1.5px solid;background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;}
-.b-info{flex:1;min-width:0;overflow:hidden;}
+.b-info{flex:1;min-width:0;}
 .b-title{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}
 .b-time{font-size:10px;color:#888;}
 .b-edit{background:none;border:none;color:#CCC;font-size:12px;padding:0 2px;opacity:0;flex-shrink:0;}
@@ -62,19 +55,19 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 .ring-num{font-size:22px;font-weight:700;color:#4A7C59;}
 .ring-sub{font-size:11px;color:#888;}
 
-/* 할일 */
+/* 할일 - 텍스트 줄바꿈 핵심 fix */
 .todo-inp-row{display:flex;gap:5px;margin-bottom:7px;}
 .todo-inp{flex:1;border:1px solid #EDECEA;border-radius:7px;padding:6px 9px;font-size:13px;outline:none;min-width:0;}
 .todo-item{display:flex;align-items:flex-start;gap:7px;padding:6px 0;border-bottom:1px solid #F7F6F3;}
-.t-check{width:17px;height:17px;border-radius:5px;border:1.5px solid #CCC;background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;margin-top:1px;}
+.t-check{width:17px;height:17px;border-radius:5px;border:1.5px solid #CCC;background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;margin-top:2px;}
 .t-check.done{border-color:#4A7C59;background:#4A7C59;}
-.t-text{flex:1;font-size:13px;line-height:1.4;word-break:break-all;}
-.t-del{background:none;border:none;color:#DDD;font-size:15px;line-height:1;flex-shrink:0;}
+.t-text{flex:1;font-size:13px;line-height:1.5;word-break:break-all;min-width:0;}
+.t-del{background:none;border:none;color:#DDD;font-size:15px;flex-shrink:0;line-height:1;}
 .t-del:hover{color:#E8735A;}
 
 /* ── 통계 ── */
 #plan-stats{height:100%;overflow-y:auto;padding:12px;}
-.period-tabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap;}
+.period-tabs{display:flex;gap:5px;margin-bottom:12px;}
 .period-tab{padding:6px 12px;border-radius:16px;border:none;background:#EDECEA;color:#666;font-size:12px;}
 .period-tab.active{background:#1C1C1E;color:#fff;font-weight:700;}
 .stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
@@ -98,23 +91,16 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 .hm-leg{display:flex;gap:3px;align-items:center;margin-top:8px;font-size:9px;color:#888;}
 
 /* ── 회고 ── */
-#plan-reflect{height:100%;overflow-y:auto;padding:12px;}
+#plan-reflect{height:100%;overflow-y:auto;padding:12px;max-width:540px;margin:0 auto;}
 .reflect-hist{background:#fff;border-radius:10px;padding:12px;border:1px solid #EDECEA;margin-bottom:7px;}
 .r-date{font-size:10px;color:#AAA;margin-bottom:5px;}
 .r-text{font-size:13px;color:#333;line-height:1.7;white-space:pre-wrap;}
 .qsum-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
 
-/* ── 다이어리 오늘 (PC) ── */
+/* ── 다이어리 오늘 ── */
 #diary-today{display:flex;height:100%;}
-#diary-left{flex:0 0 50%;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;border-right:1px solid #EDECEA;}
-#diary-right{flex:1;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;}
-
-/* ── 다이어리 오늘 (모바일) ── */
-@media(max-width:600px){
-  #diary-today{flex-direction:column;}
-  #diary-left{flex:none;border-right:none;border-bottom:1px solid #EDECEA;}
-  #diary-right{flex:1;}
-}
+#diary-left{flex:0 0 50%;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;border-right:1px solid #EDECEA;min-width:0;}
+#diary-right{flex:1;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:9px;min-width:0;}
 
 .weight-big{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
 .w-input{font-size:34px;font-weight:700;color:#2C5F2E;border:none;outline:none;width:95px;background:transparent;}
@@ -126,14 +112,14 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 .goal-prog{flex:1;height:6px;background:#EEE;border-radius:3px;overflow:hidden;}
 .goal-fill{height:100%;border-radius:3px;background:linear-gradient(to right,#2C5F2E,#74C476);}
 
-/* 보조제 */
+/* 보조제 - 텍스트 줄바꿈 핵심 fix */
 .supp-inp-row{display:flex;gap:5px;margin-bottom:7px;}
 .supp-inp{flex:1;border:1px solid #EDECEA;border-radius:7px;padding:6px 9px;font-size:13px;outline:none;min-width:0;}
 .supp-add{background:#2C5F2E;color:#fff;border:none;border-radius:7px;padding:0 12px;font-size:18px;flex-shrink:0;}
 .supp-item{display:flex;align-items:flex-start;gap:7px;padding:6px 0;border-bottom:1px solid #F7F6F3;}
-.s-check{width:17px;height:17px;border-radius:4px;border:1.5px solid #CCC;background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;margin-top:1px;}
+.s-check{width:17px;height:17px;border-radius:4px;border:1.5px solid #CCC;background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;margin-top:2px;}
 .s-check.done{border-color:#2C5F2E;background:#2C5F2E;}
-.s-name{flex:1;font-size:13px;line-height:1.4;word-break:break-all;}
+.s-name{flex:1;font-size:13px;line-height:1.5;word-break:break-all;min-width:0;}
 .s-del{background:none;border:none;color:#DDD;font-size:15px;flex-shrink:0;}
 .s-del:hover{color:#E8735A;}
 
@@ -145,7 +131,6 @@ button,input,textarea,select{font-family:'Noto Sans KR',sans-serif;cursor:pointe
 /* ── 다이어리 그래프 ── */
 #diary-graph{height:100%;overflow-y:auto;padding:12px;}
 .g-stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px;}
-@media(max-width:600px){.g-stat-cards{grid-template-columns:repeat(2,1fr);}}
 
 /* ── 설정 ── */
 #diary-settings{height:100%;overflow-y:auto;padding:12px;max-width:440px;margin:0 auto;}
@@ -253,14 +238,12 @@ function addDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r;}
 function uid(){return Math.random().toString(36).slice(2,9);}
 function dKey(){return fd(curDate);}
 
-// ── 백업 ──
 function openBk(){const last=store.get('lastBk');document.getElementById('last-bk').textContent=last?new Date(last).toLocaleString('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}):'없음';document.getElementById('bk-modal').style.display='flex';}
 function closeBk(){document.getElementById('bk-modal').style.display='none';}
 function exportData(){const keys=store.allKeys();const data={_v:1,_at:new Date().toISOString(),_app:'MyDailyApp'};keys.forEach(k=>{data[k]=store.get(k);});const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`mydailyapp_백업_${fd(new Date()).replace(/-/g,'')}.json`;a.click();URL.revokeObjectURL(url);store.set('lastBk',new Date().toISOString());closeBk();toast('✅ 백업 파일이 저장됐어요!');}
 function importData(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=function(ev){try{const data=JSON.parse(ev.target.result);if(data._app!=='MyDailyApp'){toast('❌ 올바른 백업 파일이 아니에요');return;}if(!confirm('현재 데이터를 백업 파일로 덮어쓸까요?')){return;}Object.entries(data).forEach(([k,v])=>{if(!k.startsWith('_'))store.set(k,v);});store.set('lastBk',new Date().toISOString());closeBk();toast('✅ 데이터 복원 완료!');loadAll().then(()=>render());}catch{toast('❌ 파일을 읽을 수 없어요');}e.target.value='';};reader.readAsText(file);}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
 
-// ── 로드/저장 ──
 async function loadAll(){
   const dk=dKey();
   const [pd,rec,sum,dd,wh,prof]=await Promise.all([sg('p:day:'+dk),sg('p:rec'),sg('p:stats'),sg('d:day:'+dk),sg('d:weights'),sg('d:profile')]);
@@ -281,7 +264,6 @@ async function savePlan(){
 }
 async function saveDiary(){await ss('d:day:'+dKey(),dDay);if(dDay.weight!==null){weightHistory[dKey()]=dDay.weight;await ss('d:weights',weightHistory);}}
 
-// ── 네비 ──
 async function chDate(n){curDate=addDays(curDate,n);await loadAll();updateHeader();render();}
 async function goToday(){curDate=new Date();await loadAll();updateHeader();render();}
 function updateHeader(){
@@ -304,7 +286,6 @@ function render(){
   else{if(diaryTab==='today')rDT(el);else if(diaryTab==='graph')rDG(el);else rDS(el);}
 }
 
-// ── 플래너 오늘 ──
 function rPT(el){
   const blocks=pDay.blocks||[],todos=pDay.todos||[];
   const done=blocks.filter(b=>b.completed).length,rate=blocks.length?Math.round(done/blocks.length*100):0,tdone=todos.filter(t=>t.completed).length;
@@ -354,7 +335,6 @@ function toggleTodo(id){pDay.todos=pDay.todos.map(t=>t.id===id?{...t,completed:!
 function delTodo(id){pDay.todos=pDay.todos.filter(t=>t.id!==id);savePlan();render();}
 function savePR(){const el=document.getElementById('p-reflect');if(el){pDay.reflection=el.value;savePlan();}}
 
-// ── 블록 모달 ──
 function openAddBlock(hour){modalMode='add';editBlockId=null;selColor='coral';selRecDays=[];showBM({title:'',sh:hour,sm:0,eh:Math.min(hour+1,22),em:0},false);}
 function openEditBlock(id){const b=pDay.blocks.find(b=>b.id===id);if(!b)return;modalMode='edit';editBlockId=id;selColor=b.color||'coral';selRecDays=b.days||[];showBM({title:b.title,sh:b.startHour,sm:b.startMin||0,eh:b.endHour,em:b.endMin||0},true);}
 function showBM(d,isEdit){
@@ -378,7 +358,6 @@ function saveBlock(){
 function deleteBlock(){pDay.blocks=pDay.blocks.filter(b=>b.id!==editBlockId);savePlan();closeModal();render();}
 function closeModal(){document.getElementById('modal-overlay').style.display='none';}
 
-// ── 플래너 통계 ──
 function rPS(el){
   const today=new Date();
   function getR(p){if(p==='weekly')return Array.from({length:7},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-6+i);return fd(d);});if(p==='monthly'){const dm=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();return Array.from({length:dm},(_,i)=>fd(new Date(today.getFullYear(),today.getMonth(),i+1)));}if(p==='quarterly')return Array.from({length:90},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-89+i);return fd(d);});return Array.from({length:365},(_,i)=>fd(new Date(today.getFullYear(),0,i+1)));}
@@ -389,7 +368,6 @@ function rPS(el){
 }
 function spP(p){statsPeriod=p;render();}
 
-// ── 플래너 회고 ──
 async function rPR(el){
   const q=Math.floor(new Date().getMonth()/3),qName=['1분기','2분기','3분기','4분기'][q];
   const qStats=Object.entries(statsSummary).filter(([d])=>Math.floor(new Date(d+'T00:00:00').getMonth()/3)===q);
@@ -402,7 +380,6 @@ async function rPR(el){
 }
 function saveMPR(){const el=document.getElementById('main-pr');if(el){pDay.reflection=el.value;savePlan();const btn=el.nextElementSibling;if(btn){btn.textContent='저장됨 ✓';setTimeout(()=>{if(btn)btn.textContent='저장';},1400);}}}
 
-// ── 다이어리 오늘 ──
 function calcBMI(w){if(!w||!profile.height)return null;return+(w/Math.pow(profile.height/100,2)).toFixed(1);}
 function bmiCat(bmi){if(bmi<18.5)return{label:'저체중',color:'#74b9ff'};if(bmi<23)return{label:'정상',color:'#27AE60'};if(bmi<25)return{label:'과체중',color:'#fdcb6e'};if(bmi<30)return{label:'비만',color:'#e17055'};return{label:'고도비만',color:'#d63031'};}
 function bmiPct(bmi){return Math.max(0,Math.min(100,(bmi-15)/20*100));}
@@ -453,7 +430,6 @@ function addSupp(){const inp=document.getElementById('supp-inp');const n=inp?.va
 function toggleSupp(id){dDay.supplements=dDay.supplements.map(s=>s.id===id?{...s,taken:!s.taken}:s);saveDiary();render();}
 function delSupp(id){dDay.supplements=dDay.supplements.filter(s=>s.id!==id);saveDiary();render();}
 
-// ── 다이어리 그래프 ──
 function rDG(el){
   const today=new Date();
   function getR(p){if(p==='1w')return Array.from({length:7},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-6+i);return fd(d);});if(p==='1m')return Array.from({length:30},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-29+i);return fd(d);});if(p==='3m')return Array.from({length:90},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-89+i);return fd(d);});return Array.from({length:365},(_,i)=>fd(new Date(today.getFullYear(),0,i+1)));}
@@ -473,7 +449,6 @@ function wGraph(weights,minW,maxW){
   return`<svg viewBox="0 0 ${W} ${H}" width="100%" style="overflow:visible">${[0,.5,1].map(f=>`<line x1="${PL}" y1="${PT+f*gH}" x2="${W-PR}" y2="${PT+f*gH}" stroke="#F3F1EE" stroke-width="1"/>`).join('')}${tY?`<line x1="${PL}" y1="${tY}" x2="${W-PR}" y2="${tY}" stroke="#E74C3C" stroke-width="1.5" stroke-dasharray="5,4" opacity=".6"/><text x="${W-PR+2}" y="${tY+3}" font-size="8" fill="#E74C3C">목표</text>`:''} ${yL.map((l,i)=>`<text x="${PL-3}" y="${PT+[1,.5,0][i]*gH+4}" font-size="8" fill="#AAA" text-anchor="end">${l}</text>`).join('')}<polygon points="${ap}" fill="#2C5F2E" opacity=".08"/><polyline points="${lp}" fill="none" stroke="#2C5F2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>${pts.map(p=>`<circle cx="${xP(p.i)}" cy="${yP(p.w)}" r="3.5" fill="#2C5F2E" stroke="#fff" stroke-width="1.5"/>`).join('')}${weights.filter((_,i)=>i%step===0||i===weights.length-1).map(w=>`<text x="${xP(weights.indexOf(w))}" y="${H-3}" font-size="8" fill="#AAA" text-anchor="middle">${w.date.slice(5).replace('-','/')}</text>`).join('')}</svg>`;
 }
 
-// ── 다이어리 설정 ──
 function rDS(el){
   const tBmi=calcBMI(profile.targetWeight);
   el.innerHTML=`<div id="diary-settings"><div class="card"><div class="card-title">🧍 내 정보</div><div class="setting-row"><div class="s-lbl">키</div><input class="s-inp" id="s-h" type="number" value="${profile.height}" step="0.1"> cm</div><div class="setting-row"><div class="s-lbl">목표 체중</div><input class="s-inp" id="s-t" type="number" value="${profile.targetWeight}" step="0.1"> kg</div>${profile.height&&profile.targetWeight?`<div style="margin-top:9px;padding:9px;background:#F5F8F2;border-radius:7px;font-size:13px;color:#555">목표 BMI: <strong style="color:#2C5F2E">${tBmi}</strong> (${bmiCat(tBmi).label})</div>`:''}<button class="save-btn" onclick="saveSettings()">저장</button></div></div>`;
